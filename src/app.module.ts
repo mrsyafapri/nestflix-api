@@ -13,9 +13,9 @@ import { MovieCastsModule } from './movie-casts/movie-casts.module';
       type: 'mysql',
       host: 'localhost',
       port: 3306,
-      username: 'root',
-      password: '',
-      database: 'nestflix',
+      username: 'root', // your username
+      password: '', // your password
+      database: 'nestflix', // your database
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       synchronize: true,
     }),

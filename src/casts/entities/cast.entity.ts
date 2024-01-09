@@ -20,4 +20,8 @@ export class Cast {
 
   @ManyToMany(() => Movie, (movie) => movie.casts)
   movies: Movie[];
+
+  horoscope: string;
+
+  isLeap: boolean;
 }
