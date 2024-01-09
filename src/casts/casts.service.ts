@@ -1,15 +1,18 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository, UpdateResult, DeleteResult } from 'typeorm';
 import { CreateCastDto } from './dto/create-cast.dto';
 import { UpdateCastDto } from './dto/update-cast.dto';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Cast } from './entities/cast.entity';
-import { Repository, UpdateResult, DeleteResult } from 'typeorm';
+import { MovieCast } from 'src/movie-casts/entities/movie-cast.entity';
 
 @Injectable()
 export class CastsService {
   constructor(
     @InjectRepository(Cast)
     private castRepository: Repository<Cast>,
+    @InjectRepository(MovieCast)
+    private movieCastRepository: Repository<MovieCast>,
   ) {}
 
   create(createCastDto: CreateCastDto): Promise<CreateCastDto> {
@@ -32,6 +35,21 @@ export class CastsService {
       cast.isLeap = this.isLeap(cast.birthday);
     });
     return cast;
+  }
+
+  async getLanguagesForHighRatedMovies(id: number): Promise<string[]> {
+    const movieCasts = await this.movieCastRepository.find({
+      where: { cast: { id } },
+      relations: ['movie'],
+    });
+    const languages = Array.from(
+      new Set(
+        movieCasts
+          .filter((movieCast) => movieCast.movie.rating >= 4.5)
+          .map((movieCast) => movieCast.movie.language),
+      ),
+    );
+    return languages;
   }
 
   update(id: number, updateCastDto: UpdateCastDto): Promise<UpdateResult> {

@@ -32,6 +32,11 @@ export class CastsController {
     return this.castsService.findOne(+id);
   }
 
+  @Get('language/:id')
+  getLanguagesForHighRatedMovies(@Param('id') id: string): Promise<any[]> {
+    return this.castsService.getLanguagesForHighRatedMovies(+id);
+  }
+
   @Patch(':id')
   update(
     @Param('id') id: string,
