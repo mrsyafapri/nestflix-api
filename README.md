@@ -22,6 +22,10 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+# NestFlix API
+
+Created by: [Muhammad Rizki Syafapri](https://mrsyafapri.github.io/)
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
@@ -57,6 +61,73 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Database Entity
+
+### Movie
+
+| Field    | Type         | Key                         |
+| -------- | ------------ | --------------------------- |
+| id       | bigint(20)   | primary key, auto increment |
+| title    | varchar(100) |                             |
+| language | varchar(30)  |                             |
+| status   | varchar(10)  |                             |
+| rating   | float        |                             |
+
+### Cast
+
+| Field    | Type         | Key                         |
+| -------- | ------------ | --------------------------- |
+| id       | bigint(20)   | primary key, auto increment |
+| name     | varchar(100) |                             |
+| birthday | timestamp    |                             |
+| deadday  | timestamp    |                             |
+| rating   | int(11)      |                             |
+
+### MovieCast
+
+| Field    | Type       | Key                         |
+| -------- | ---------- | --------------------------- |
+| id       | bigint(20) | primary key, auto increment |
+| movie_id | bigint(20) | foregin key movie(id)       |
+| cast_id  | bigint(20) | foregin key cast(id)        |
+
+## API List
+
+### CRUD for Movie
+
+| Method | Endpoint    | Description                    |
+| ------ | ----------- | ------------------------------ |
+| GET    | /movies     | Get all movies                 |
+| GET    | /movies/:id | Get a movie for spesific id    |
+| POST   | /movies     | Create a new movie             |
+| DELETE | /movies/:id | Delete a movie for spesific id |
+| PATCH  | /movies/:id | Update a movie for spesific id |
+
+### GET movieCast
+
+| Method | Endpoint              | Description                                  |
+| ------ | --------------------- | -------------------------------------------- |
+| GET    | /movie-casts          | Get all movie with their casts               |
+| GET    | /movie-casts/:movieId | Get a movie with their casts for spesific id |
+
+### CRUD for Cast
+
+| Method | Endpoint   | Description                   |
+| ------ | ---------- | ----------------------------- |
+| GET    | /casts     | Get all casts                 |
+| GET    | /casts/:id | Get a cast for spesific id    |
+| POST   | /casts     | Create a new cast             |
+| DELETE | /casts/:id | Delete a cast for spesific id |
+| PATCH  | /casts/:id | Update a cast for spesific id |
+
+### BONUS Points
+
+| Method | Endpoint            | Description                                                    |
+| ------ | ------------------- | -------------------------------------------------------------- |
+| GET    | /casts/language/:id | Get language from an actor where the movie rating is above 4.5 |
+| GET    | /casts              | Get all casts with their leap year and horoscope               |
+| GET    | /casts/:id          | Get a cast with their leap year and horoscope for spesific id  |
 
 ## Support
 
