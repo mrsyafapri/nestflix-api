@@ -96,38 +96,38 @@ $ npm run test:cov
 
 ### CRUD for Movie
 
-| Method | Endpoint    | Description                    |
-| ------ | ----------- | ------------------------------ |
-| GET    | /movies     | Get all movies                 |
-| GET    | /movies/:id | Get a movie for spesific id    |
-| POST   | /movies     | Create a new movie             |
-| DELETE | /movies/:id | Delete a movie for spesific id |
-| PATCH  | /movies/:id | Update a movie for spesific id |
+| Method   | Endpoint      | Description                    |
+| -------- | ------------- | ------------------------------ |
+| `GET`    | `/movies`     | Get all movies                 |
+| `GET`    | `/movies/:id` | Get a movie for spesific id    |
+| `POST`   | `/movies`     | Create a new movie             |
+| `DELETE` | `/movies/:id` | Delete a movie for spesific id |
+| `PATCH`  | `/movies/:id` | Update a movie for spesific id |
 
 ### GET movieCast
 
-| Method | Endpoint              | Description                                  |
-| ------ | --------------------- | -------------------------------------------- |
-| GET    | /movie-casts          | Get all movie with their casts               |
-| GET    | /movie-casts/:movieId | Get a movie with their casts for spesific id |
+| Method | Endpoint                | Description                                  |
+| ------ | ----------------------- | -------------------------------------------- |
+| `GET`  | `/movie-casts`          | Get all movie with their casts               |
+| `GET`  | `/movie-casts/:movieId` | Get a movie with their casts for spesific id |
 
 ### CRUD for Cast
 
-| Method | Endpoint   | Description                   |
-| ------ | ---------- | ----------------------------- |
-| GET    | /casts     | Get all casts                 |
-| GET    | /casts/:id | Get a cast for spesific id    |
-| POST   | /casts     | Create a new cast             |
-| DELETE | /casts/:id | Delete a cast for spesific id |
-| PATCH  | /casts/:id | Update a cast for spesific id |
+| Method   | Endpoint     | Description                   |
+| -------- | ------------ | ----------------------------- |
+| `GET`    | `/casts`     | Get all casts                 |
+| `GET`    | `/casts/:id` | Get a cast for spesific id    |
+| `POST`   | `/casts`     | Create a new cast             |
+| `DELETE` | `/casts/:id` | Delete a cast for spesific id |
+| `PATCH`  | `/casts/:id` | Update a cast for spesific id |
 
 ### BONUS Points
 
-| Method | Endpoint            | Description                                                    |
-| ------ | ------------------- | -------------------------------------------------------------- |
-| GET    | /casts/language/:id | Get language from an actor where the movie rating is above 4.5 |
-| GET    | /casts              | Get all casts with their leap year and horoscope               |
-| GET    | /casts/:id          | Get a cast with their leap year and horoscope for spesific id  |
+| Method | Endpoint              | Description                                                    |
+| ------ | --------------------- | -------------------------------------------------------------- |
+| `GET`  | `/casts/language/:id` | Get language from an actor where the movie rating is above 4.5 |
+| `GET`  | `/casts`              | Get all casts with their leap year and horoscope               |
+| `GET`  | `/casts/:id`          | Get a cast with their leap year and horoscope for spesific id  |
 
 ## Support
 
